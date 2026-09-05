@@ -10,12 +10,12 @@ export default function Showcase() {
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
 
   const categories = [
-    { id: "all", label: "Toate Creațiile" },
-    { id: "cakes", label: "Torturi Fine" },
-    { id: "rolls", label: "Cinnamon Rolls & Babka" },
-    { id: "mini", label: "Mini Prăjituri & Tarte" },
-    { id: "prints", label: "Foi de Zahăr & Print" },
-    { id: "candybar", label: "Candy Bar" },
+    { id: "all", label: "Toate Creațiile (15)" },
+    { id: "cakes", label: "Torturi Festive" },
+    { id: "vintage", label: "Stil Vintage Lambeth" },
+    { id: "themed", label: "Tematice & Iluzie" },
+    { id: "mini", label: "Cupe & Candy Bar" },
+    { id: "prints", label: "Print Comestibil Zahăr" },
   ];
 
   const filteredProducts =
@@ -30,17 +30,17 @@ export default function Showcase() {
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FAF0E6] border border-[#E8D4C2] text-[#9C663A] text-xs font-semibold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Portofoliu & Arome</span>
+            <span>Portofoliu Real • Fotografii Autentice</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#241C18] font-normal tracking-tight mb-4">
             Creațiile Noastre Dulci
           </h2>
           <p className="text-base sm:text-lg text-[#6A5D56] leading-relaxed">
-            Fiecare desert este o călătorie a gustului, pregătit manual cu răbdare, ingrediente nobile și dragoste pentru frumos.
+            Fiecare imagine reflectă o comandă reală realizată de Sweet Spot în Satu Mare. Lucrăm manual fiecare detaliu pentru ca desertul tău să fie deopotrivă o încântare vizuală și o plăcere desăvârșită la gust.
           </p>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Category Filter Tabs */}
         <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
           {categories.map((cat) => (
             <button
@@ -57,16 +57,16 @@ export default function Showcase() {
           ))}
         </div>
 
-        {/* Product Grid */}
+        {/* Product Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
               className="bg-white rounded-3xl overflow-hidden border border-[#EBDED2] shadow-sm hover:shadow-warm transition-all duration-300 flex flex-col group"
             >
-              {/* Image with overlay badge */}
+              {/* Card Image */}
               <div
-                className="relative aspect-[4/3] overflow-hidden cursor-pointer"
+                className="relative aspect-square overflow-hidden cursor-pointer bg-[#F5EFE6]"
                 onClick={() => setSelectedProduct(product)}
               >
                 <Image
@@ -77,20 +77,20 @@ export default function Showcase() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-sm text-[#241C18] text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white/90 backdrop-blur-xs text-[#241C18] text-xs font-semibold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
                     <Eye className="w-3.5 h-3.5 text-[#9C663A]" />
-                    Vezi Detalii
+                    Mărește Fotografia
                   </span>
                 </div>
 
                 {product.badge && (
-                  <span className="absolute top-3 left-3 bg-[#FAF7F2]/90 backdrop-blur-sm text-[#9C663A] text-[11px] font-semibold tracking-wide uppercase px-3 py-1 rounded-full border border-[#EBDED2] shadow-xs">
+                  <span className="absolute top-3 left-3 bg-[#FAF7F2]/90 backdrop-blur-xs text-[#9C663A] text-[11px] font-semibold tracking-wide uppercase px-3 py-1 rounded-full border border-[#EBDED2] shadow-xs">
                     {product.badge}
                   </span>
                 )}
               </div>
 
-              {/* Content */}
+              {/* Card Content */}
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <span className="text-xs uppercase tracking-wider text-[#9C663A] font-semibold block mb-1">
@@ -130,7 +130,7 @@ export default function Showcase() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#9C663A] hover:text-[#82532B] ml-auto transition-colors"
                   >
-                    <span>Comandă</span>
+                    <span>Comandă modelul</span>
                     <ChevronRight className="w-4 h-4" />
                   </a>
                 </div>
@@ -143,19 +143,19 @@ export default function Showcase() {
         <div className="mt-16 bg-[#F5EFE6] rounded-3xl p-8 sm:p-10 border border-[#EBDED2] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-left max-w-xl">
             <span className="text-xs font-semibold uppercase tracking-widest text-[#9C663A] block mb-1">
-              Comenzi Personalizate
+              Comenzi Personalizate în Satu Mare
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl text-[#241C18] font-normal mb-2">
-              Ai o idee specifică sau o fotografie de referință?
+              Ai o fotografie de referință sau o dorință anume?
             </h3>
             <p className="text-xs sm:text-sm text-[#5A4D45] leading-relaxed">
-              Fie că vrei un tort tematic pentru copilul tău, un print pe foi de zahăr sau o compoziție cu aromele tale preferate, dă-ne un mesaj și stabilim toate detaliile.
+              Realizăm torturi aniversare tematice, modele vintage cu dantelărie din cremă, printuri comestibile cu personajele preferate ale copiilor sau torturi elegante pentru nunți și botezuri.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
             <a
-              href={`https://wa.me/${BAKERY_INFO.phoneNumber}?text=Bună%20ziua!%20Am%20o%20idee%20de%20tort%20personalizat%20și%20aș%20dori%20o%20discuție.`}
+              href={`https://wa.me/${BAKERY_INFO.phoneNumber}?text=Bună%20ziua!%20Am%20o%20poză%20cu%20un%20model%20de%20tort%20pe%20care%20aș%20dori%20să%20îl%20discutăm.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#9C663A] text-[#FAF7F2] text-xs sm:text-sm font-medium hover:bg-[#82532B] transition-colors shadow-sm"
@@ -169,7 +169,7 @@ export default function Showcase() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white border border-[#EBDED2] text-[#241C18] text-xs sm:text-sm font-medium hover:bg-[#FAF0E6] transition-colors"
             >
-              <span>Vezi pe Instagram</span>
+              <span>Vezi mai mult pe Instagram</span>
             </a>
           </div>
         </div>
@@ -178,16 +178,16 @@ export default function Showcase() {
       {/* Product Detail Modal */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="bg-[#FAF7F2] rounded-3xl max-w-xl w-full overflow-hidden shadow-warm-lg border border-[#EBDED2] relative">
+          <div className="bg-[#FAF7F2] rounded-3xl max-w-xl w-full overflow-hidden shadow-warm-lg border border-[#EBDED2] relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedProduct(null)}
               aria-label="Închide fereastra"
-              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/80 backdrop-blur-xs text-[#241C18] flex items-center justify-center hover:bg-white shadow-sm transition-colors"
+              className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/90 backdrop-blur-xs text-[#241C18] flex items-center justify-center hover:bg-white shadow-sm transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="relative aspect-video w-full">
+            <div className="relative aspect-square w-full bg-[#EFE6DD]">
               <Image
                 src={selectedProduct.image}
                 alt={selectedProduct.title}
@@ -209,7 +209,7 @@ export default function Showcase() {
 
               <div className="mb-6">
                 <span className="text-xs font-semibold text-[#241C18] block mb-2">
-                  Profil de arome & ingrediente:
+                  Specificații & Arome:
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {selectedProduct.flavorNotes.map((note, idx) => (

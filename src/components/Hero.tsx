@@ -1,46 +1,79 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
-import { Sparkles, MessageCircle, ArrowRight, ShieldCheck, Heart, Award } from "lucide-react";
-import { BAKERY_INFO } from "@/data/bakeryData";
+import { Sparkles, MessageCircle, ArrowRight, ShieldCheck, Heart, Award, ChevronRight } from "lucide-react";
+import { BAKERY_INFO, REAL_GALLERY_HERO } from "@/data/bakeryData";
 
 export default function Hero() {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  const heroCreations = [
+    {
+      image: "/images/real/dessert_cups_raspberry.jpg",
+      title: "Cupe Desert cu Zmeură & Mascarpone",
+      subtitle: "Candy bar & porții individuale festive",
+      tag: "Candy Bar Satu Mare",
+    },
+    {
+      image: "/images/real/cake_half_anniversary.jpg",
+      title: "Tort Personalizat Dublu „48 & 25”",
+      subtitle: "Jumătate verde mentă, jumătate roz pudră",
+      tag: "100% Lucrat Manual",
+    },
+    {
+      image: "/images/real/cake_medovik_berries.jpg",
+      title: "Tort Medovik cu Fructe de Pădure",
+      subtitle: "Foi fine cu miere și coroană de fructe proaspete",
+      tag: "Rețetă Autentică de Casă",
+    },
+    {
+      image: "/images/real/cake_vintage_gold.jpg",
+      title: "Tort Vintage Auriu „Cute but Leo”",
+      subtitle: "Dantelărie clasică Lambeth realizată la poș",
+      tag: "Colecția Vintage",
+    },
+  ];
+
+  const current = heroCreations[activeImageIndex];
+
   return (
-    <section className="relative overflow-hidden pt-6 pb-16 md:pt-12 md:pb-24">
+    <section className="relative overflow-hidden pt-4 pb-14 md:pt-10 md:pb-20">
       {/* Subtle organic background glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F3E7DC] rounded-full blur-3xl opacity-50 -z-10 pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#F3E7DC] rounded-full blur-3xl opacity-60 -z-10 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Text & CTAs */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center mb-12">
+          {/* Left Column: Headline & Intro */}
+          <div className="lg:col-span-6 flex flex-col items-start text-left">
             {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF0E6] border border-[#E8D4C2] text-[#9C663A] text-xs sm:text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FAF0E6] border border-[#E8D4C2] text-[#9C663A] text-xs sm:text-sm font-medium mb-5">
               <Sparkles className="w-3.5 h-3.5 text-[#9C663A]" />
-              <span>Cofetărie Artizanală de Casă • Satu Mare</span>
+              <span>Cofetărie de Casă • Satu Mare</span>
             </div>
 
-            {/* Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-[#241C18] font-normal leading-[1.15] tracking-tight mb-6">
-              Deserturi de casă, create cu <span className="italic font-serif text-[#9C663A]">suflet</span> și ingrediente nobile.
+            {/* Main Headline */}
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#241C18] font-normal leading-[1.18] tracking-tight mb-5">
+              Torturi și deserturi create cu <span className="italic font-serif text-[#9C663A]">pasiune</span>, exclusiv la comandă.
             </h1>
 
-            {/* Slogan Quote from official social media */}
-            <blockquote className="border-l-2 border-[#9C663A]/60 pl-4 py-1 mb-6 text-base sm:text-lg text-[#5A4D45] italic font-serif">
+            {/* Social Media Bio Slogan */}
+            <blockquote className="border-l-2 border-[#9C663A] pl-4 py-1.5 mb-5 text-base sm:text-lg text-[#4A3E38] italic font-serif bg-[#FAF0E6]/30 rounded-r-xl">
               „De la prăjituri simple la torturi spectaculoase – tot ce ai nevoie pentru a-ți răsfăța sufletul.”
             </blockquote>
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-[#6A5D56] leading-relaxed max-w-xl mb-8">
-              Fiecare tort este lucrat manual în laboratorul nostru de casă din Satu Mare. Coacem exclusiv la comandă, folosind unt curat 82%, ciocolată belgiană veritabilă și piureuri naturale de fructe — fără premixuri sintetice sau compromisuri.
+            {/* Description */}
+            <p className="text-sm sm:text-base text-[#6A5D56] leading-relaxed max-w-xl mb-7">
+              Fiecare fotografie de pe acest site este <strong>o creație 100% reală</strong> realizată în atelierul Sweet Spot din Satu Mare. Fără imagini generate artificial, fără premixuri industriale — doar ingrediente curate, măiestrie manuală și dragoste de dulce.
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 w-full sm:w-auto mb-10">
+            {/* Primary Actions */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto mb-8">
               <a
-                href={`https://wa.me/${BAKERY_INFO.phoneNumber}?text=Bună%20ziua!%20Aș%20dori%20să%20discutăm%20despre%20o%20comandă%20de%20tort.`}
+                href={`https://wa.me/${BAKERY_INFO.phoneNumber}?text=Bună%20ziua!%20Aș%20dori%20să%20discutăm%20despre%20o%20comandă%20la%20Sweet%20Spot.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-[#9C663A] text-[#FAF7F2] font-medium text-sm sm:text-base hover:bg-[#82532B] transition-colors shadow-warm"
+                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#9C663A] text-[#FAF7F2] font-medium text-sm sm:text-base hover:bg-[#82532B] transition-colors shadow-warm"
               >
                 <MessageCircle className="w-5 h-5" />
                 <span>Comandă pe WhatsApp</span>
@@ -48,76 +81,138 @@ export default function Hero() {
 
               <a
                 href="#creatii"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-white border border-[#E0D4C7] text-[#241C18] font-medium text-sm sm:text-base hover:bg-[#FAF0E6] hover:border-[#9C663A]/40 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white border border-[#E0D4C7] text-[#241C18] font-medium text-sm sm:text-base hover:bg-[#FAF0E6] hover:border-[#9C663A]/40 transition-colors"
               >
-                <span>Descoperă Creațiile</span>
+                <span>Vezi Galeria Noastră</span>
                 <ArrowRight className="w-4 h-4 text-[#9C663A]" />
               </a>
             </div>
 
-            {/* Trust points */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-[#EBDED2] w-full text-xs sm:text-sm text-[#5A4D45]">
+            {/* Trust Badges */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-5 border-t border-[#EBDED2] w-full text-xs text-[#5A4D45]">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#9C663A] shrink-0" />
-                <span>Unt 82% & fără premixuri</span>
+                <span>Doar fotografii reale</span>
               </div>
               <div className="flex items-center gap-2">
                 <Heart className="w-4 h-4 text-[#9C663A] shrink-0" />
-                <span>Realizat exclusiv la comandă</span>
+                <span>Unt 82% & ingrediente pure</span>
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                 <Award className="w-4 h-4 text-[#9C663A] shrink-0" />
-                <span>Personalizare în detaliu</span>
+                <span>Satu Mare, România</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Composition */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative mx-auto max-w-md lg:max-w-none">
-              {/* Main showcase photo */}
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-warm-lg border-4 border-white">
-                <Image
-                  src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1200&q=80"
-                  alt="Tort artizanal Sweet Spot Bakery Satu Mare"
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                
-                {/* Overlay bottom caption */}
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <span className="text-xs uppercase tracking-widest text-[#E8D4C2] font-semibold block mb-1">
-                    Semnătura Sweet Spot
-                  </span>
-                  <p className="font-serif text-lg font-medium">
-                    Tort de Fistic & Zmeură Proaspătă
-                  </p>
+          {/* Right Column: Multi-Image Interactive Hero Showcase */}
+          <div className="lg:col-span-6 flex flex-col gap-4">
+            {/* Main Featured Photo */}
+            <div className="relative aspect-[4/3] sm:aspect-[16/11] rounded-3xl overflow-hidden shadow-warm-lg border-4 border-white bg-[#EFE6DD]">
+              <Image
+                src={current.image}
+                alt={current.title}
+                fill
+                priority
+                className="object-cover transition-all duration-500 hover:scale-105"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 pointer-events-none" />
+
+              {/* Top badge */}
+              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-xs text-[#9C663A] text-xs font-semibold px-3 py-1.5 rounded-full border border-[#EBDED2] shadow-xs flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>{current.tag}</span>
+              </div>
+
+              {/* Floating Sweet Spot Logo Stamp */}
+              <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-xs p-1.5 rounded-full shadow-md border border-[#EBDED2] flex items-center justify-center">
+                <div className="relative w-9 h-9 rounded-full overflow-hidden">
+                  <Image
+                    src="/images/real/logo.jpg"
+                    alt="Sweet Spot Logo"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
 
-              {/* Floating artisan stamp badge */}
-              <div className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 bg-white/95 backdrop-blur-sm p-3.5 rounded-2xl shadow-warm border border-[#EBDED2] flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#FAF0E6] flex items-center justify-center text-[#9C663A]">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs font-semibold text-[#241C18] block">100% Proaspăt</span>
-                  <span className="text-[11px] text-[#786B64] block">Făcut special pentru tine</span>
-                </div>
-              </div>
-
-              {/* Floating secondary badge */}
-              <div className="hidden sm:flex absolute -bottom-6 -left-6 bg-[#241C18] text-[#FAF7F2] px-5 py-3 rounded-2xl shadow-warm-lg items-center gap-3 border border-white/10">
-                <span className="text-2xl">✨</span>
-                <div>
-                  <span className="text-xs text-[#E8D4C2] block font-medium">Satu Mare</span>
-                  <span className="text-sm font-serif font-medium">Ridicări & Livrări Evenimente</span>
-                </div>
+              {/* Bottom Caption */}
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="text-[11px] uppercase tracking-widest text-[#E8D4C2] font-semibold block mb-0.5">
+                  Creație Autentică Sweet Spot
+                </span>
+                <p className="font-serif text-lg sm:text-xl font-medium mb-1">
+                  {current.title}
+                </p>
+                <p className="text-xs text-[#F2E8DF] line-clamp-1">
+                  {current.subtitle}
+                </p>
               </div>
             </div>
+
+            {/* Thumbnail Selectors (Click to switch main photo) */}
+            <div className="grid grid-cols-4 gap-2 sm:gap-3">
+              {heroCreations.map((item, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveImageIndex(idx)}
+                  className={`relative aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
+                    activeImageIndex === idx
+                      ? "border-[#9C663A] ring-2 ring-[#9C663A]/30 scale-95 shadow-sm"
+                      : "border-white/80 opacity-70 hover:opacity-100 hover:border-[#9C663A]/40"
+                  }`}
+                  aria-label={`Afișează ${item.title}`}
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="120px"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Live Ribbon: Extra Real Photos from Social Media */}
+        <div className="pt-6 border-t border-[#EBDED2]">
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#9C663A] flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Realizat recent în laboratorul nostru din Satu Mare</span>
+            </span>
+            <a
+              href="#creatii"
+              className="text-xs font-medium text-[#786B64] hover:text-[#9C663A] flex items-center gap-1"
+            >
+              <span>Vezi toate cele 15 creații</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5 sm:gap-3">
+            {REAL_GALLERY_HERO.map((item, idx) => (
+              <a
+                key={idx}
+                href="#creatii"
+                className="group relative aspect-square rounded-2xl overflow-hidden border border-[#EBDED2] bg-[#EFE6DD] shadow-2xs hover:shadow-warm transition-all duration-300"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  sizes="(max-width: 640px) 33vw, 16vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors" />
+                <span className="absolute bottom-1.5 left-1.5 right-1.5 text-[10px] text-white font-medium bg-black/50 backdrop-blur-xs px-1.5 py-0.5 rounded-md truncate opacity-0 group-hover:opacity-100 transition-opacity text-center">
+                  {item.title}
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </div>

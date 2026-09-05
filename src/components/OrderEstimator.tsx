@@ -17,9 +17,9 @@ export default function OrderEstimator() {
     "Aniversare / Zi de Naștere",
     "Nuntă / Cununie",
     "Botez",
-    "Cinnamon Rolls Box (4 / 6 / 12 buc)",
-    "Babka Artizanal cu Ciocolată & Nuci",
-    "Candy Bar & Platou Festiv",
+    "Tort Vintage Lambeth (Dantelărie)",
+    "Cupe Desert & Candy Bar",
+    "Tort Tematic cu Print Comestibil pe Zahăr",
   ];
 
   const portionOptions = [
@@ -31,19 +31,21 @@ export default function OrderEstimator() {
   ];
 
   const flavorOptions = [
-    "Fistic & Zmeură proaspătă",
-    "Ciocolată belgiană intensă & Vișine",
-    "Vanilie de Madagascar & Fructe de pădure",
-    "Caramel sărat, Lotus Biscoff & Nuci pecan",
-    "Lămâie răcoroasă, Bezea & Mac",
+    "Medovik Tradițional cu Miere & Fructe",
+    "Cremă Catifelată de Mascarpone & Zmeură",
+    "Ciocolată belgiană intensă & Fructe",
+    "Tort Ombré cu Drip Glaze & Macarons",
+    "Tort Semi-Naked cu Scorțișoară & Citrice",
+    "Tort Iluzie Optică (ex: Burger gourmet)",
     "Recomandare artizanală (discutăm împreună)",
   ];
 
   const extraOptions = [
-    "Mesaj personalizat scris",
-    "Print alimentar pe foaie de zahăr (poză/logo)",
+    "Print alimentar pe foaie de zahăr (poză/personaj/logo)",
+    "Dantelărie vintage Lambeth realizată manual",
+    "Mesaj aniversar scris pe tort",
     "Decor cu flori naturale igienizate",
-    "Topper aniversar",
+    "Macarons artizanale pe decor",
   ];
 
   const toggleExtra = (item: string) => {

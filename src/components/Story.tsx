@@ -11,8 +11,8 @@ export default function Story() {
           <div className="lg:col-span-5 relative order-2 lg:order-1">
             <div className="relative rounded-3xl overflow-hidden shadow-warm border-4 border-white aspect-[4/5] max-w-md mx-auto lg:max-w-none">
               <Image
-                src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80"
-                alt="Pasiunea pentru patiserie artizanală de casă"
+                src="/images/real/cake_floral_peonies.jpg"
+                alt="Tort artizanal creat de Sweet Spot în Satu Mare"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 40vw"
@@ -33,7 +33,7 @@ export default function Story() {
             <div className="absolute -bottom-6 -right-4 sm:-bottom-8 sm:right-6 bg-white p-3 rounded-2xl shadow-warm border border-[#EBDED2] flex items-center gap-3">
               <div className="relative w-12 h-12 rounded-full overflow-hidden border border-[#9C663A]/30">
                 <Image
-                  src="/images/logo.jpg"
+                  src="/images/real/logo.jpg"
                   alt="Sweet Spot Homemade Cakes"
                   fill
                   className="object-cover"
